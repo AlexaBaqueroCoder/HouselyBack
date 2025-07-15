@@ -1,5 +1,6 @@
 from fastapi import FastAPI
 from fastapi.responses import HTMLResponse
+from app.models.property import PropertyUpdate
 from app.routers import properties, health
 
 app = FastAPI(
@@ -152,3 +153,9 @@ def read_root():
     </html>
     """
     return html_content
+
+    if __name__ == "__main__":
+        import uvicorn
+        port = int(os.getenv("PORT",8000))
+        uvicorn.run(app, host="0.0.0.0", port=port)
+       
